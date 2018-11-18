@@ -1,12 +1,13 @@
 def primeNumbers(num):
-    if type(num) == int:
-        if num > 1:
-            for i in range(2, num):
-                if num % i == 0:
-                    return ("%d is not a prime number") % (num)
-                else:
-                    return ("%d is a prime number") % (num)
-        else:
-            return []
-    else:
-        raise TypeError("Unexpected Input")
+    try:
+        prime = []
+        if num > 2:
+            for i in range(2, num + 1):
+                if num % i != 0:
+                    prime.append(i)
+
+        return prime
+
+    except TypeError as e:
+        raise TypeError("Handling run-time erroe %s") % e
+
